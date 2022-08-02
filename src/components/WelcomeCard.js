@@ -14,8 +14,11 @@ export default function WelcomeCard(props) {
                         <img src={welcome_logo} />
 
                     </Table>
+
                     <Card.Text>
-                        <p>See how actions in the left information panel effect the right Aladin panel, and vice versa.</p>
+                        <li><b>Asteroids</b>: Plotting 1000 points on Aladin, read from a REST API backend</li>
+                        <li><b>Exoplanets</b>: Show event/control interaction between Aladin and React. Plotting 4400 points on Aladin</li>
+
                     </Card.Text>
                 </Card.Body>
             </Card>

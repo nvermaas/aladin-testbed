@@ -1,4 +1,4 @@
-name: build-deploy-exoplanets
+name: build-deploy-aladin-testbed
 on: [push]
 jobs:
   build-deploy-astroview:
@@ -8,7 +8,7 @@ jobs:
       - uses: actions/setup-node@v1
       - name: install node packages
         run: npm install
-      - name: build exoplanets
+      - name: build aladin-testbed
         run: npm run build
         env:
            CI: ""
@@ -21,7 +21,7 @@ jobs:
           password: ${{ secrets.MY_PASSWORD }}
           rm: true
           source: "build"
-          target: "~/www/repository/exoplanets"
+          target: "~/www/repository/aladin-testbed"
 
       - name: move files to production
         uses: appleboy/ssh-action@master
@@ -30,6 +30,6 @@ jobs:
           username: ${{ secrets.MY_USER }}
           password: ${{ secrets.MY_PASSWORD }}
           script: |
-             cd ~/www/exoplanets
-             cp ~/www/repository/exoplanets/build/*.* .
-             cp -r ~/www/repository/exoplanets/build/static/* ~/www/my_static_files
+             cd ~/www/aladin-testbed
+             cp ~/www/repository/aladin-testbed/build/*.* .
+             cp -r ~/www/repository/aladin-testbed/build/static/* ~/www/my_static_files

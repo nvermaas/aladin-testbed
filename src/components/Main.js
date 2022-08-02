@@ -18,7 +18,7 @@ export default function Main() {
     FetchData()
 
     return (
-        <Router basename="exoplanets">
+        <Router basename="aladin-testbed">
             <div>
                 <NavigationBar/>
 
@@ -36,7 +36,7 @@ export default function Main() {
                 </Switch>
             </div>
             <footer>
-                <small> (C) 2021 - Nico Vermaas - version 1.0.0 - 2 aug 2022 - 9:00</small>
+                <small> (C) 2021 - Nico Vermaas - version 1.0.0 - 2 aug 2022 - 10:00</small>
             </footer>
         </Router>
 

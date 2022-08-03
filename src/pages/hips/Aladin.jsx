@@ -12,8 +12,13 @@ const Aladin = (props) => {
         aladin.setFov(parseFloat(my_state.aladin_fov))
         aladin.gotoRaDec(my_state.aladin_ra, my_state.aladin_dec)
 
+        aladin.setImageSurvey(my_state.selected_survey)
+
+        let hips = window.A.catalogHiPS(my_state.selected_catalog, {onClick: 'showTable', name: 'tycho2'});
+        aladin.addCatalog(hips);
+
         // create the catalog layer
-        createLayers(aladin, props.data)
+        //createLayers(aladin, props.data)
 
         // add a listener to aladin
         // define function triggered when  a source is hovered
@@ -38,7 +43,7 @@ const Aladin = (props) => {
             }
         });
 
-    }, [my_state.filtered_exoplanets, my_state.selected_exoplanet, my_state.aladin_reload])
+    }, [my_state.selected_catalog, my_state.selected_survey, my_state.aladin_reload])
 
 
     const addCirclesToOverlay = (my_overlay, object, color, size) => {

@@ -19,8 +19,11 @@ export default function SurveyFilterButton() {
         </Dropdown.Toggle>
 
         <Dropdown.Menu>
-            <Dropdown.Item onClick={() => handleClick("P/DSS2/color")}>DSS colored</Dropdown.Item>
-            <Dropdown.Item onClick={() => handleClick("P/allWISE/color")}>allWISE (infrared)</Dropdown.Item>
+            <Dropdown.Item onClick={() => handleClick("P/DSS2/color")}>P/DSS2/color</Dropdown.Item>
+            <Dropdown.Item onClick={() => handleClick("P/allWISE/color")}>P/allWISE/color</Dropdown.Item>
+            <Dropdown.Item onClick={() => handleClick("P/XMM/PN/color")}>P/XMM/PN/color</Dropdown.Item>
+            <Dropdown.Item onClick={() => handleClick("P/Fermi/color")}>P/Fermi/color</Dropdown.Item>
+            <Dropdown.Item onClick={() => handleClick("P/AKARI/FIS/Color")}>P/AKARI/FIS/Color</Dropdown.Item>
         </Dropdown.Menu>
     </Dropdown>
 

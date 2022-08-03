@@ -19,8 +19,8 @@ export default function CatalogFilterButton() {
         </Dropdown.Toggle>
 
         <Dropdown.Menu>
-            <Dropdown.Item onClick={() => handleClick("hipparcos")}>Hipparcos (CDS)</Dropdown.Item>
-            <Dropdown.Item onClick={() => handleClick("tycho2")}>Tycho2 (CDS)</Dropdown.Item>
+            <Dropdown.Item onClick={() => handleClick("https://uilennest.net/hips/hipparcos/")}>Hipparcos (CDS)</Dropdown.Item>
+            <Dropdown.Item onClick={() => handleClick("https://uilennest.net/hips/tycho2/")}>Tycho2 (CDS)</Dropdown.Item>
         </Dropdown.Menu>
     </Dropdown>
 

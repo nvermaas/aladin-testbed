@@ -6,6 +6,16 @@ import { SET_SELECTED_EXOPLANET, ALADIN_RA, ALADIN_DEC, ALADIN_FOV } from '../..
 const Aladin = (props) => {
     const [ my_state , my_dispatch] = useGlobalReducer()
 
+    var myFilterFunction = function(source) {
+        alert(source.data)
+        var magnitude  = parseFloat(source.data['VTmag']);
+        if (isNaN(magnitude))  {
+            return false;
+        }
+        let visible = magnitude < parseFloat(my_state.magnitude_limit)
+        return visible
+    }
+
     React.useEffect(() => {
 
         let aladin = window.A.aladin('#aladin-lite-div', { survey: 'P/DSS2/color', fov:60 })
@@ -14,7 +24,7 @@ const Aladin = (props) => {
 
         aladin.setImageSurvey(my_state.selected_survey)
 
-        let hips = window.A.catalogHiPS(my_state.selected_catalog, {onClick: 'showTable', name: 'tycho2'});
+        let hips = window.A.catalogHiPS(my_state.selected_catalog, {onClick: 'showTable', name: 'tycho2', filter: myFilterFunction});
         aladin.addCatalog(hips);
 
         // create the catalog layer
@@ -43,7 +53,7 @@ const Aladin = (props) => {
             }
         });
 
-    }, [my_state.selected_catalog, my_state.selected_survey, my_state.aladin_reload])
+    }, [my_state.selected_catalog, my_state.selected_survey, my_state.magnitude_limit, my_state.aladin_reload])
 
 
     const addCirclesToOverlay = (my_overlay, object, color, size) => {

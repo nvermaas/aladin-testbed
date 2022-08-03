@@ -17,8 +17,10 @@ export const ALADIN_RELOAD = 'ALADIN_RELOAD'
 
 export const SHOW_PLANETLIST = 'SHOW_PLANETLIST'
 
+// HIPS page
 export const SET_SELECTED_SURVEY = 'SET_SELECTED_SURVEY'
 export const SET_SELECTED_CATALOG = 'SET_SELECTED_CATALOG'
+export const SET_MAGNITUDE_LIMIT = 6
 
 export const initialState = {
         status_asteroids : "unfetched",
@@ -33,10 +35,11 @@ export const initialState = {
         aladin_dec: "0.0",
         aladin_fov: "30",
 
-        show_planetlist : false,
+        show_planetlist  : false,
 
-        selected_survey : 'DSS colored',
-        selected_catalog : 'tycho2'
+        selected_survey  : 'DSS colored',
+        selected_catalog : 'tycho2',
+        magnitude_limit  : "6"
 }
 
 export const reducer = (state, action) => {
@@ -124,6 +127,11 @@ export const reducer = (state, action) => {
                 selected_catalog: action.selected_catalog
             };
 
+        case SET_MAGNITUDE_LIMIT:
+            return {
+                ...state,
+                magnitude_limit: action.magnitude_limit
+            };
         default:
             return state;
     }

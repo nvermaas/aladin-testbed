@@ -23,7 +23,7 @@ const Aladin = (props) => {
 
         aladin.setImageSurvey(my_state.selected_survey)
 
-        let hips = window.A.catalogHiPS(my_state.selected_catalog, {onClick: 'showTable', name: 'tycho2', filter: myFilterFunction});
+        let hips = window.A.catalogHiPS(my_state.selected_catalog, {color: '#00529b',onClick: 'showTable', name: 'tycho2', filter: myFilterFunction});
         aladin.addCatalog(hips);
 
         // create the catalog layer

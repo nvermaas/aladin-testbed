@@ -7,10 +7,9 @@ const Aladin = (props) => {
     const [ my_state , my_dispatch] = useGlobalReducer()
 
     var myFilterFunction = function(source) {
-        alert(source.data)
         var magnitude  = parseFloat(source.data['VTmag']);
         if (isNaN(magnitude))  {
-            return false;
+            return true;
         }
         let visible = magnitude < parseFloat(my_state.magnitude_limit)
         return visible

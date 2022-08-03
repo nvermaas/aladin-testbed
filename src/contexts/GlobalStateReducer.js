@@ -17,6 +17,9 @@ export const ALADIN_RELOAD = 'ALADIN_RELOAD'
 
 export const SHOW_PLANETLIST = 'SHOW_PLANETLIST'
 
+export const SET_SELECTED_SURVEY = 'SET_SELECTED_SURVEY'
+export const SET_SELECTED_CATALOG = 'SET_SELECTED_CATALOG'
+
 export const initialState = {
         status_asteroids : "unfetched",
         fetched_asteroids: undefined,

@@ -33,7 +33,10 @@ export const initialState = {
         aladin_dec: "0.0",
         aladin_fov: "30",
 
-        show_planetlist : false
+        show_planetlist : false,
+
+        selected_survey : 'DSS colored',
+        selected_catalog : 'tycho2'
 }
 
 export const reducer = (state, action) => {
@@ -107,6 +110,18 @@ export const reducer = (state, action) => {
             return {
                 ...state,
                 show_planetlist: action.show_planetlist
+            };
+
+        case SET_SELECTED_SURVEY:
+            return {
+                ...state,
+                selected_survey: action.selected_survey
+            };
+
+        case SET_SELECTED_CATALOG:
+            return {
+                ...state,
+                selected_catalog: action.selected_catalog
             };
 
         default:

@@ -42,3 +42,17 @@ export const getBackspaceIcon = () => {
     let size = 'sm'
     return <FontAwesomeIcon size={size} icon={icon} color={color}  />
 }
+
+export const getCatalogIcon = () => {
+    let icon = faGlobe
+    let color = "darkblue"
+    let size = 'sm'
+    return <FontAwesomeIcon size={size} icon={icon} color={color}  />
+}
+
+export const getSurveyIcon = () => {
+    let icon = faMap
+    let color = "darkblue"
+    let size = 'sm'
+    return <FontAwesomeIcon size={size} icon={icon} color={color}  />
+}

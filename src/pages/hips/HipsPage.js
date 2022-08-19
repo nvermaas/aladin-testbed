@@ -15,10 +15,6 @@ export default function HipsPage(props) {
     let defaultSurvey = {survey: "P/DSS2/color"}
     let fov = my_state.aladin_fov
 
-    if (my_state.status_exoplanets !== "fetched") {
-        return <LoadingSpinner/>
-    }
-
     return (
         <div>
             <Container fluid>

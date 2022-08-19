@@ -52,14 +52,14 @@ export default function MagnitudeBox(props) {
     }
 
     return <Form inline>
-        <td>
+        <div>
             <FormControl
                 type="text"
                 placeholder={props.default}
                 className="mr-sm-1"
                 onKeyUp={handleKeyUp}>
             </FormControl>
-        </td>
+        </div>
 
         </Form>
 

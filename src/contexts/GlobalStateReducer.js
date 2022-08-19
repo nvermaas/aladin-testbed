@@ -4,11 +4,14 @@
 // possible actions
 export const SET_STATUS_ASTEROIDS = 'SET_STATUS_ASTEROIDS'
 export const SET_FETCHED_ASTEROIDS = 'SET_FETCHED_ASTEROIDS'
+
 export const SET_STATUS_EXOPLANETS = 'SET_STATUS_EXOPLANETS'
 export const SET_FETCHED_EXOPLANETS = 'SET_FETCHED_EXOPLANETS'
 export const SET_FILTERED_EXOPLANETS = 'SET_FILTERED_EXOPLANETS'
-
 export const SET_SELECTED_EXOPLANET = 'SET_SELECTED_EXOPLANET'
+
+export const SET_STATUS_UCAC4 = 'SET_STATUS_UCAC4'
+export const SET_FETCHED_UCAC4 = 'SET_FETCHED_UCAC4'
 
 export const ALADIN_RA = 'ALADIN_RA'
 export const ALADIN_DEC = 'ALADIN_DEC'
@@ -23,23 +26,28 @@ export const SET_SELECTED_CATALOG = 'SET_SELECTED_CATALOG'
 export const SET_MAGNITUDE_LIMIT = 6
 
 export const initialState = {
-        status_asteroids : "unfetched",
-        fetched_asteroids: undefined,
+        status_asteroids   : "unfetched",
+        fetched_asteroids  : undefined,
 
-        status_exoplanets : "unfetched",
-        fetched_exoplanets: undefined,
+        status_exoplanets  : "unfetched",
+        fetched_exoplanets : undefined,
         filtered_exoplanets: undefined,
         selected_exoplanet : undefined,
 
-        aladin_ra: "90.0",
-        aladin_dec: "0.0",
-        aladin_fov: "30",
+        status_ucac4       : "unfetched",
+        fetched_ucac4      : undefined,
+
+        aladin_ra: "82.0",
+        aladin_dec: "7.0",
+        aladin_fov: "2",
 
         show_planetlist  : false,
 
         selected_survey  : 'DSS colored',
         selected_catalog : 'tycho2',
-        magnitude_limit  : "10"
+        magnitude_limit  : "10",
+
+        status_ucuc4 : "unfetched",
 }
 
 export const reducer = (state, action) => {
@@ -80,6 +88,18 @@ export const reducer = (state, action) => {
             return {
                 ...state,
                 selected_exoplanet: action.selected_exoplanet
+            };
+
+        case SET_STATUS_UCAC4:
+            return {
+                ...state,
+                status_ucuc4: action.status_ucuc4
+            };
+
+        case SET_FETCHED_UCAC4:
+            return {
+                ...state,
+                fetched_ucac4: action.fetched_ucac4
             };
 
         case ALADIN_RA:

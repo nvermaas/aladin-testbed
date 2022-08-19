@@ -12,12 +12,13 @@ import WelcomePage from '../pages/WelcomePage';
 import AsteroidsPage from '../pages/asteroids/AsteroidsPage';
 import ExoplanetsPage from '../pages/exoplanets/ExoplanetsPage';
 import HipsPage from '../pages/hips/HipsPage';
+import UCAC4Page from '../pages/ucac4/UCAC4Page';
 import FetchData from '../services/FetchData';
-
+import FetchUCAC4 from '../services/FetchUCAC4';
 export default function Main() {
 
     FetchData()
-
+    FetchUCAC4()
     return (
         <Router basename="aladin-testbed">
             <div>
@@ -35,6 +36,9 @@ export default function Main() {
                     </Route>
                     <Route exact path="/hips">
                         <HipsPage />
+                    </Route>
+                    <Route exact path="/ucac4">
+                        <UCAC4Page />
                     </Route>
                 </Switch>
             </div>

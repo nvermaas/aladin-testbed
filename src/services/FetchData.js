@@ -27,7 +27,7 @@ export default function FetchData () {
         const url = "https://web-of-wyrd.nl/my_astrobase/asteroids-all/"
         if (my_state.status_asteroids !== 'fetching')  {
 
-            my_dispatch({type: SET_STATUS_ASTEROIDS, status: 'fetching'})
+            my_dispatch({type: SET_STATUS_ASTEROIDS, status_asteroids: 'fetching'})
 
             fetch(url)
                 .then(results => {
@@ -52,7 +52,7 @@ export default function FetchData () {
 
         if (my_state.status_exoplanets !== 'fetching')  {
 
-            my_dispatch({type: SET_STATUS_EXOPLANETS, status: 'fetching'})
+            my_dispatch({type: SET_STATUS_EXOPLANETS, status_exoplanets: 'fetching'})
 
             fetch(url)
                 .then(results => {

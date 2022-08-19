@@ -39,7 +39,7 @@ export const initialState = {
 
         selected_survey  : 'DSS colored',
         selected_catalog : 'tycho2',
-        magnitude_limit  : "6"
+        magnitude_limit  : "10"
 }
 
 export const reducer = (state, action) => {

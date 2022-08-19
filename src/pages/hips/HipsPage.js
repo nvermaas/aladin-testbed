@@ -5,8 +5,6 @@ import LoadingSpinner from '../../components/LoadingSpinner';
 import { useGlobalReducer } from '../../contexts/GlobalContext';
 
 import FilterCard from './FilterCard'
-import PlanetCard from './PlanetCard'
-
 import Aladin from './Aladin'
 
 export default function HipsPage(props) {
@@ -27,7 +25,6 @@ export default function HipsPage(props) {
                 <Row>
                     <Col sm={3} md={3} lg={3}>
                         <FilterCard/>
-                        <PlanetCard/>
 
                     </Col>
                     <Col sm={9} md={9} lg={9}>

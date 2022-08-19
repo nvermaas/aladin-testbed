@@ -36,7 +36,7 @@ export default function MagnitudeBox(props) {
         <td>
             <FormControl
                 type="text"
-                placeholder={props.default}
+                placeholder= {my_state.magnitude_limit}
                 className="mr-sm-1"
                 onKeyUp={handleKeyUp}>
             </FormControl>

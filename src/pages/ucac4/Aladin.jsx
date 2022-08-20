@@ -49,7 +49,7 @@ const Aladin = (props) => {
             }
         });
 
-    }, [my_state.selected_survey, my_state.fetched_ucac4, my_state.magnitude_limit, my_state.aladin_reload])
+    }, [my_state.selected_survey, my_state.fetched_ucac4, my_state.aladin_reload])
 
 
     const addCirclesToOverlay = (my_overlay, object, color, size) => {
@@ -63,7 +63,7 @@ const Aladin = (props) => {
         let my_catalog = window.A.catalog({
             name: 'UCAC4',
             shape : 'circle',
-            color : 'red',
+            color : 'yellow',
             sourceSize: 20,
             labelColumn: 'star',
             displayLabel: true,

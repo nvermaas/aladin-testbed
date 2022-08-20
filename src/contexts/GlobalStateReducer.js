@@ -12,6 +12,7 @@ export const SET_SELECTED_EXOPLANET = 'SET_SELECTED_EXOPLANET'
 
 export const SET_STATUS_UCAC4 = 'SET_STATUS_UCAC4'
 export const SET_FETCHED_UCAC4 = 'SET_FETCHED_UCAC4'
+export const SET_NUMBER_OF_STARS = 'SET_NUMBER_OF_STARS'
 
 export const ALADIN_RA = 'ALADIN_RA'
 export const ALADIN_DEC = 'ALADIN_DEC'
@@ -36,6 +37,7 @@ export const initialState = {
 
         status_ucac4       : "unfetched",
         fetched_ucac4      : undefined,
+        number_of_stars    : 0,
 
         aladin_ra: "82.0",
         aladin_dec: "7.0",
@@ -100,6 +102,12 @@ export const reducer = (state, action) => {
             return {
                 ...state,
                 fetched_ucac4: action.fetched_ucac4
+            };
+
+        case SET_NUMBER_OF_STARS:
+            return {
+                ...state,
+                number_of_stars: action.number_of_stars
             };
 
         case ALADIN_RA:

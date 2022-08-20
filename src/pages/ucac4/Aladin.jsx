@@ -35,10 +35,10 @@ const Aladin = (props) => {
 
     const setNewFov = (newFov) => {
         // don't be too sensitive about refreshing when zooming in/out
-        alert(newFov)
+        //alert(newFov)
         let old_fov = (parseFloat(my_state.aladin_fov))
         let new_fov = (parseFloat(newFov[0]))
-        alert(old_fov.toString() + ", " + new_fov.toString())
+        //alert(old_fov.toString() + ", " + new_fov.toString())
         // refresh conditionally
         let zoom_factor = Math.min(old_fov, new_fov) / Math.max(old_fov, new_fov)
         alert(zoom_factor)

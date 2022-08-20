@@ -35,7 +35,7 @@ const Aladin = (props) => {
 
     const setNewFov = (newFov) => {
         // don't be too sensitive about refreshing when zooming in/out
-        alert(newFov)
+        //alert(newFov)
         let old_fov = Math.round(parseFloat(my_state.aladin_fov))
         let new_fov = Math.round(parseFloat(newFov[0]))
 
@@ -94,6 +94,9 @@ const Aladin = (props) => {
         aladin.on('positionChanged', function() {
             let radec = aladin.getRaDec()
             setNewSkyCoords(radec)
+
+            let fov = aladin.getFov()
+            //setNewFov(fov)
         })
 
     }, [my_state.selected_survey, my_state.fetched_ucac4, my_state.aladin_reload])

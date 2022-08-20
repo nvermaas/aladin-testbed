@@ -42,7 +42,7 @@ export const initialState = {
 
         aladin_ra: "82.0",
         aladin_dec: "7.0",
-        aladin_fov: "0.5",
+        aladin_fov: "2",
 
         show_planetlist  : false,
 

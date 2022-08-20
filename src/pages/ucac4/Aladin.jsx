@@ -35,13 +35,13 @@ const Aladin = (props) => {
 
     const setNewFov = (newFov) => {
         // don't be too sensitive about refreshing when zooming in/out
-        //alert(newFov)
-        let old_fov = Math.round(parseFloat(my_state.aladin_fov))
-        let new_fov = Math.round(parseFloat(newFov[0]))
-
+        alert(newFov)
+        let old_fov = (parseFloat(my_state.aladin_fov))
+        let new_fov = (parseFloat(newFov[0]))
+        alert(old_fov.toString() + ", " + new_fov.toString())
         // refresh conditionally
         let zoom_factor = Math.min(old_fov, new_fov) / Math.max(old_fov, new_fov)
-
+        alert(zoom_factor)
         if (zoom_factor < refreshFactor) {
             my_dispatch({type: ALADIN_FOV, aladin_fov: newFov[0]})
             my_dispatch({type: RELOAD_UCAC4, reload_ucac4: !my_state.reload_ucac4})
@@ -85,7 +85,6 @@ const Aladin = (props) => {
 
         // callback when the field of view in aladin is changed
         aladin.on('zoomChanged', function() {
-            alert('zoomChanged')
             let fov = aladin.getFov()
             setNewFov(fov)
         })
@@ -96,10 +95,10 @@ const Aladin = (props) => {
             setNewSkyCoords(radec)
 
             let fov = aladin.getFov()
-            //setNewFov(fov)
+            setNewFov(fov)
         })
 
-    }, [my_state.selected_survey, my_state.fetched_ucac4, my_state.aladin_reload])
+    }, [my_state.fetched_ucac4, my_state.aladin_reload])
 
 
     const addCirclesToOverlay = (my_overlay, object, color, size) => {

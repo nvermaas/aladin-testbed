@@ -25,9 +25,9 @@ export default function FetchUCAC4() {
 
         //const url = "http://192.168.178.37:8010/stars/"
         const url = "http://192.168.178.37:8010/stars_rectangle/?ra_min=" + ra_min.toString() + "&ra_max=" + ra_max.toString() + "&dec_min=" + dec_min.toString() + "&dec_max=" + dec_max.toString() + "&limit=10000"
-        if (my_state.status_ucuc4 !== 'fetching') {
+        if (my_state.status_ucac4 !== 'fetching') {
 
-            my_dispatch({type: SET_STATUS_UCAC4, status_ucuc4: 'fetching'})
+            my_dispatch({type: SET_STATUS_UCAC4, status_ucac4: 'fetching'})
 
             fetch(url)
                 .then(results => {
@@ -37,12 +37,12 @@ export default function FetchUCAC4() {
                 .then(data => {
                     my_dispatch({type: SET_FETCHED_UCAC4, fetched_ucac4: data})
                     my_dispatch({type: SET_NUMBER_OF_STARS, number_of_stars: data.length})
-                    my_dispatch({type: SET_STATUS_UCAC4, status_ucuc4: 'fetched'})
+                    my_dispatch({type: SET_STATUS_UCAC4, status_ucac4: 'fetched'})
 
                 })
                 .catch(function () {
                     my_dispatch({type: SET_NUMBER_OF_STARS, number_of_stars: 0})
-                    my_dispatch({type: SET_STATUS_UCAC4, status_ucuc4: 'failed'})
+                    my_dispatch({type: SET_STATUS_UCAC4, status_ucac4: 'failed'})
                     alert("fetch to " + url + " failed.");
                 })
         }

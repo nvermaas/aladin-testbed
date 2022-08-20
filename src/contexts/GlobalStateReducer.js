@@ -95,7 +95,7 @@ export const reducer = (state, action) => {
         case SET_STATUS_UCAC4:
             return {
                 ...state,
-                status_ucuc4: action.status_ucuc4
+                status_ucac4: action.status_ucac4
             };
 
         case SET_FETCHED_UCAC4:

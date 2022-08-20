@@ -13,6 +13,7 @@ export const SET_SELECTED_EXOPLANET = 'SET_SELECTED_EXOPLANET'
 export const SET_STATUS_UCAC4 = 'SET_STATUS_UCAC4'
 export const SET_FETCHED_UCAC4 = 'SET_FETCHED_UCAC4'
 export const SET_NUMBER_OF_STARS = 'SET_NUMBER_OF_STARS'
+export const RELOAD_UCAC4 = 'RELOAD_UCAC4'
 
 export const ALADIN_RA = 'ALADIN_RA'
 export const ALADIN_DEC = 'ALADIN_DEC'
@@ -41,7 +42,7 @@ export const initialState = {
 
         aladin_ra: "82.0",
         aladin_dec: "7.0",
-        aladin_fov: "2",
+        aladin_fov: "0.5",
 
         show_planetlist  : false,
 
@@ -102,6 +103,13 @@ export const reducer = (state, action) => {
             return {
                 ...state,
                 fetched_ucac4: action.fetched_ucac4
+            };
+
+        case RELOAD_UCAC4:
+
+            return {
+                ...state,
+                reload_ucac4: action.reload_ucac4
             };
 
         case SET_NUMBER_OF_STARS:

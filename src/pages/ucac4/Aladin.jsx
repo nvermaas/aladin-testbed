@@ -1,19 +1,53 @@
 import React from 'react';
 
 import { useGlobalReducer } from '../../contexts/GlobalContext'
-import { SET_SELECTED_EXOPLANET, ALADIN_RA, ALADIN_DEC, ALADIN_FOV } from '../../contexts/GlobalStateReducer'
+import {
+    SET_SELECTED_EXOPLANET,
+    ALADIN_RA,
+    ALADIN_DEC,
+    ALADIN_FOV,
+    RELOAD_UCAC4
+} from '../../contexts/GlobalStateReducer'
 
 const Aladin = (props) => {
     const [ my_state , my_dispatch] = useGlobalReducer()
+    const refreshFactor = 0.5
 
-    var myFilterFunction = function(source) {
-        var magnitude  = parseFloat(source.data['VTmag']);
-        if (isNaN(magnitude))  {
-            return true;
+    // this function not only sets the new SkyCoords,
+    // but also triggers a reload of the data when the SkyCoords have changed.
+    const setNewSkyCoords = (newSkyCoords) => {
+
+        let x1 = parseFloat(my_state.aladin_ra)
+        let x2 = parseFloat(newSkyCoords[0])
+        let y1 = parseFloat(my_state.aladin_dec)
+        let y2 = parseFloat(newSkyCoords[1])
+
+        let move_factor_x = Math.abs((x2 - x1) / parseFloat(my_state.aladin_fov))
+        let move_factor_y = Math.abs((y2 - y1) / parseFloat(my_state.aladin_fov))
+
+        // refresh conditionally
+        if ((move_factor_x > refreshFactor) || (move_factor_y > refreshFactor)) {
+            my_dispatch({type: ALADIN_RA, aladin_ra: newSkyCoords[0]})
+            my_dispatch({type: ALADIN_DEC, aladin_dec: newSkyCoords[1]})
+            my_dispatch({type: RELOAD_UCAC4, reload_ucac4: !my_state.reload_ucac4})
         }
-        let visible = magnitude < parseFloat(my_state.magnitude_limit)
-        return visible
     }
+
+    const setNewFov = (newFov) => {
+        // don't be too sensitive about refreshing when zooming in/out
+        alert(newFov)
+        let old_fov = Math.round(parseFloat(my_state.aladin_fov))
+        let new_fov = Math.round(parseFloat(newFov[0]))
+
+        // refresh conditionally
+        let zoom_factor = Math.min(old_fov, new_fov) / Math.max(old_fov, new_fov)
+
+        if (zoom_factor < refreshFactor) {
+            my_dispatch({type: ALADIN_FOV, aladin_fov: newFov[0]})
+            my_dispatch({type: RELOAD_UCAC4, reload_ucac4: !my_state.reload_ucac4})
+        }
+    }
+
 
     React.useEffect(() => {
 
@@ -48,6 +82,19 @@ const Aladin = (props) => {
                 }
             }
         });
+
+        // callback when the field of view in aladin is changed
+        aladin.on('zoomChanged', function() {
+            alert('zoomChanged')
+            let fov = aladin.getFov()
+            setNewFov(fov)
+        })
+
+        // callback when the sky position in aladin is changed
+        aladin.on('positionChanged', function() {
+            let radec = aladin.getRaDec()
+            setNewSkyCoords(radec)
+        })
 
     }, [my_state.selected_survey, my_state.fetched_ucac4, my_state.aladin_reload])
 

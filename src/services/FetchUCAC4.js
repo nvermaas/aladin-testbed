@@ -13,18 +13,19 @@ export default function FetchUCAC4() {
 
     useEffect(() => {
             fetchStars()
-        }, [my_state.magnitude_limit]
+        }, [my_state.magnitude_limit, my_state.reload_ucac4]
     );
 
     const fetchStars = () => {
-
-        let ra_min = my_state.aladin_ra - (my_state.aladin_fov / 2)
-        let ra_max = my_state.aladin_ra + (my_state.aladin_fov / 2)
-        let dec_min = my_state.aladin_dec - (my_state.aladin_fov / 2)
-        let dec_max = my_state.aladin_dec + (my_state.aladin_fov / 2)
+        let d = (my_state.aladin_fov / 2)
+        let ra_min = Number(my_state.aladin_ra) - d
+        let ra_max = Number(my_state.aladin_ra) + d
+        let dec_min = Number(my_state.aladin_dec) - d
+        let dec_max = Number(my_state.aladin_dec) + d
 
         //const url = "http://192.168.178.37:8010/stars/"
         const url = "http://192.168.178.37:8010/stars_rectangle/?ra_min=" + ra_min.toString() + "&ra_max=" + ra_max.toString() + "&dec_min=" + dec_min.toString() + "&dec_max=" + dec_max.toString() + "&limit=10000"
+
         if (my_state.status_ucac4 !== 'fetching') {
 
             my_dispatch({type: SET_STATUS_UCAC4, status_ucac4: 'fetching'})

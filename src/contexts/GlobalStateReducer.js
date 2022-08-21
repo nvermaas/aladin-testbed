@@ -26,6 +26,7 @@ export const SHOW_PLANETLIST = 'SHOW_PLANETLIST'
 export const SET_SELECTED_SURVEY = 'SET_SELECTED_SURVEY'
 export const SET_SELECTED_CATALOG = 'SET_SELECTED_CATALOG'
 export const SET_MAGNITUDE_LIMIT = 6
+export const SET_DATA_LIMIT = 10000
 
 export const initialState = {
         status_asteroids   : "unfetched",
@@ -42,14 +43,14 @@ export const initialState = {
 
         aladin_ra: "82.0",
         aladin_dec: "7.0",
-        aladin_fov: "2",
+        aladin_fov: "0.5",
 
         show_planetlist  : false,
 
         selected_survey  : 'DSS colored',
         selected_catalog : 'tycho2',
         magnitude_limit  : "10",
-
+        data_limit: 1000,
         status_ucuc4 : "unfetched",
 }
 
@@ -168,6 +169,15 @@ export const reducer = (state, action) => {
                 ...state,
                 magnitude_limit: action.magnitude_limit
             };
+
+        case SET_DATA_LIMIT:
+
+            return {
+
+                ...state,
+                data_limit: action.data_limit
+            };
+
         default:
             return state;
     }

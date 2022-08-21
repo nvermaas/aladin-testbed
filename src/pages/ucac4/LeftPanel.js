@@ -3,7 +3,9 @@ import {Card, Button, Table, Image } from 'react-bootstrap'
 import { useGlobalReducer } from '../../contexts/GlobalContext';
 import { toHMSLabel, toFOVLabel } from '../../utils/coordinates'
 import MagnitudeBox from './MagnitudeBox'
+import DataLimitBox from './DataLimitBox'
 import RefreshButton from "./RefreshButton";
+
 export default function LeftPanel(props) {
     const [ my_state , my_dispatch] = useGlobalReducer()
 
@@ -24,11 +26,15 @@ export default function LeftPanel(props) {
             <Card>
 
                 <Card.Body align={"left"}>
-                    <tr><td>Status: {my_state.status_ucac4}</td></tr>
+                    <table>
+                        <tr><td>Status: {my_state.status_ucac4}</td></tr>
                     <tr><td>Number of stars: {my_state.number_of_stars}</td></tr>
                     <tr><td>{renderRADec(my_state.aladin_ra, my_state.aladin_dec)}</td></tr>
-                    <tr><td><MagnitudeBox/></td></tr>
+                    <tr>---------------------------------</tr>
+                    <tr><td>Magnitude Limit: <MagnitudeBox/></td></tr>
+                    <tr><td>Max Records    : <DataLimitBox/></td></tr>
                     <RefreshButton />
+                    </table>
                 </Card.Body>
             </Card>
         </div>

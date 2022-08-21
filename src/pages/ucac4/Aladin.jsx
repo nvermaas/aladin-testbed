@@ -35,13 +35,12 @@ const Aladin = (props) => {
 
     const setNewFov = (newFov) => {
         // don't be too sensitive about refreshing when zooming in/out
-        //alert(newFov)
         let old_fov = (parseFloat(my_state.aladin_fov))
         let new_fov = (parseFloat(newFov[0]))
         //alert(old_fov.toString() + ", " + new_fov.toString())
         // refresh conditionally
         let zoom_factor = Math.min(old_fov, new_fov) / Math.max(old_fov, new_fov)
-        alert(zoom_factor)
+
         if (zoom_factor < refreshFactor) {
             my_dispatch({type: ALADIN_FOV, aladin_fov: newFov[0]})
             my_dispatch({type: RELOAD_UCAC4, reload_ucac4: !my_state.reload_ucac4})
@@ -94,8 +93,8 @@ const Aladin = (props) => {
             let radec = aladin.getRaDec()
             setNewSkyCoords(radec)
 
-            let fov = aladin.getFov()
-            setNewFov(fov)
+            //let fov = aladin.getFov()
+            //setNewFov(fov)
         })
 
     }, [my_state.fetched_ucac4, my_state.aladin_reload])
@@ -114,8 +113,8 @@ const Aladin = (props) => {
             shape : 'circle',
             color : 'yellow',
             sourceSize: 20,
-            labelColumn: 'star',
-            displayLabel: true,
+            labelColumn: 'j_mag',
+            displayLabel: false,
             onClick: 'showPopup'});
             //onClick: 'showTable'});
 
@@ -136,6 +135,10 @@ const Aladin = (props) => {
         let source = [window.A.source(
             object.ra,
             object.dec,
+            {
+                mpos1: object.mpos1,
+                j_mag : Math.round(object.j_mag/100)/10,
+            },
         )]
 
         my_catalog.addSources(source);

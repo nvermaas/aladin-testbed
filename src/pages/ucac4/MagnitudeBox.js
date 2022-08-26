@@ -2,7 +2,7 @@ import React from 'react';
 import { Form, FormControl, Button } from 'react-bootstrap';
 import { useGlobalReducer } from '../../contexts/GlobalContext';
 
-import { SET_MAGNITUDE_LIMIT } from '../../contexts/GlobalStateReducer'
+import {RELOAD_UCAC4, SET_MAGNITUDE_LIMIT} from '../../contexts/GlobalStateReducer'
 
 // typing in the search box will execute a filter and dispatch it. The observation screen responds instantly.
 export default function MagnitudeBox(props) {
@@ -15,7 +15,7 @@ export default function MagnitudeBox(props) {
 
         if (event.charCode === 13) {
             my_dispatch({type: SET_MAGNITUDE_LIMIT, magnitude_limit: magnitude_limit})
-
+            my_dispatch({type: RELOAD_UCAC4, reload_ucac4: !my_state.reload_ucac4})
             // prevent the enter key to reload the whole page
             event.preventDefault()
         }

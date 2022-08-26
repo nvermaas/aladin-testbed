@@ -23,10 +23,10 @@ export default function FetchUCAC4() {
         let dec_min = Number(my_state.aladin_dec) - d
         let dec_max = Number(my_state.aladin_dec) + d
 
-        //const url = "http://192.168.178.37:8010/stars/"
-        //const url = "http://192.168.178.37:8010/stars_rectangle/?ra_min=" + ra_min.toString() + "&ra_max=" + ra_max.toString() + "&dec_min=" + dec_min.toString() + "&dec_max=" + dec_max.toString() + "&limit=10000"
-        let url = "https://uilennest.net/stars_rectangle/?ra_min=" + ra_min.toString() + "&ra_max=" + ra_max.toString()
+        let url = "http://145.38.187.31//stars_rectangle/?ra_min=" + ra_min.toString() + "&ra_max=" + ra_max.toString()
+        //let url = "https://uilennest.net/stars_rectangle/?ra_min=" + ra_min.toString() + "&ra_max=" + ra_max.toString()
         url += "&dec_min=" + dec_min.toString() + "&dec_max=" + dec_max.toString()
+        url += "&j_mag=" + (my_state.magnitude_limit*1000).toString()
         url += "&limit=" + my_state.data_limit.toString()
 
         if (my_state.status_ucac4 !== 'fetching') {

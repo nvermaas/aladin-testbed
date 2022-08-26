@@ -49,7 +49,7 @@ export const initialState = {
 
         selected_survey  : 'DSS colored',
         selected_catalog : 'tycho2',
-        magnitude_limit  : "10",
+        magnitude_limit  : 10,
         data_limit: 1000,
         status_ucuc4 : "unfetched",
 }

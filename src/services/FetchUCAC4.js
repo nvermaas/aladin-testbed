@@ -32,16 +32,19 @@ export default function FetchUCAC4() {
         if (my_state.status_ucac4 !== 'fetching') {
 
             my_dispatch({type: SET_STATUS_UCAC4, status_ucac4: 'fetching'})
-
+            let startTime = new Date()
             fetch(url)
                 .then(results => {
 
                     return results.json();
                 })
                 .then(data => {
+                    let endTime = new Date()
+                    let timeDiff = endTime - startTime
+
                     my_dispatch({type: SET_FETCHED_UCAC4, fetched_ucac4: data})
                     my_dispatch({type: SET_NUMBER_OF_STARS, number_of_stars: data.length})
-                    my_dispatch({type: SET_STATUS_UCAC4, status_ucac4: 'fetched'})
+                    my_dispatch({type: SET_STATUS_UCAC4, status_ucac4: 'fetched ('+timeDiff.toString()+' ms)'})
 
                 })
                 .catch(function () {

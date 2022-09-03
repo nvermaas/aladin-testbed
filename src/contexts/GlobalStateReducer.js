@@ -25,8 +25,8 @@ export const SHOW_PLANETLIST = 'SHOW_PLANETLIST'
 // HIPS page
 export const SET_SELECTED_SURVEY = 'SET_SELECTED_SURVEY'
 export const SET_SELECTED_CATALOG = 'SET_SELECTED_CATALOG'
-export const SET_MAGNITUDE_LIMIT = 6
-export const SET_DATA_LIMIT = 10000
+export const SET_MAGNITUDE_LIMIT = 'SET_MAGNITUDE_LIMIT'
+export const SET_DATA_LIMIT = 'SET_DATA_LIMIT'
 
 export const initialState = {
         status_asteroids   : "unfetched",
@@ -43,14 +43,14 @@ export const initialState = {
 
         aladin_ra: "82.0",
         aladin_dec: "7.0",
-        aladin_fov: "0.5",
+        aladin_fov: "2.5",
 
         show_planetlist  : false,
 
         selected_survey  : 'DSS colored',
         selected_catalog : 'tycho2',
-        magnitude_limit  : 10,
-        data_limit: 1000,
+        magnitude_limit  : 15,
+        data_limit: 10000,
         status_ucuc4 : "unfetched",
 }
 

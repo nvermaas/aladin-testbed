@@ -23,7 +23,8 @@ export default function FetchUCAC4() {
         let dec_min = Number(my_state.aladin_dec) - d
         let dec_max = Number(my_state.aladin_dec) + d
 
-        let url = "http://145.38.187.31//stars_rectangle/?ra_min=" + ra_min.toString() + "&ra_max=" + ra_max.toString()
+        let url = "http://localhost:8000/stars_rectangle/?ra_min=" + ra_min.toString() + "&ra_max=" + ra_max.toString()
+        //let url = "http://145.38.187.31/stars_rectangle/?ra_min=" + ra_min.toString() + "&ra_max=" + ra_max.toString()
         //let url = "https://uilennest.net/stars_rectangle/?ra_min=" + ra_min.toString() + "&ra_max=" + ra_max.toString()
         url += "&dec_min=" + dec_min.toString() + "&dec_max=" + dec_max.toString()
         url += "&j_mag=" + (my_state.magnitude_limit*1000).toString()

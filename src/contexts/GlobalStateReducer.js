@@ -13,6 +13,7 @@ export const SET_SELECTED_EXOPLANET = 'SET_SELECTED_EXOPLANET'
 export const SET_STATUS_UCAC4 = 'SET_STATUS_UCAC4'
 export const SET_FETCHED_UCAC4 = 'SET_FETCHED_UCAC4'
 export const SET_NUMBER_OF_STARS = 'SET_NUMBER_OF_STARS'
+export const SET_UCAC4_BACKEND_URL = 'SET_UCAC4_BACKEND_URL'
 export const RELOAD_UCAC4 = 'RELOAD_UCAC4'
 
 export const ALADIN_RA = 'ALADIN_RA'
@@ -40,6 +41,7 @@ export const initialState = {
         status_ucac4       : "unfetched",
         fetched_ucac4      : undefined,
         number_of_stars    : 0,
+        ucac4_backend_url  : ['uilennest psycopg2','https://uilennest.net/psycopg2'],
 
         aladin_ra: "82.0",
         aladin_dec: "7.0",
@@ -111,6 +113,13 @@ export const reducer = (state, action) => {
             return {
                 ...state,
                 reload_ucac4: action.reload_ucac4
+            };
+
+        case SET_UCAC4_BACKEND_URL:
+
+            return {
+                ...state,
+                ucac4_backend_url: action.ucac4_backend_url
             };
 
         case SET_NUMBER_OF_STARS:

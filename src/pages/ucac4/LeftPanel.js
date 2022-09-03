@@ -1,10 +1,12 @@
 import React from 'react';
-import {Card, Button, Table, Image } from 'react-bootstrap'
+import {Container, Card, Col, Row, Button, Table, Image } from 'react-bootstrap'
+
 import { useGlobalReducer } from '../../contexts/GlobalContext';
 import { toHMSLabel, toFOVLabel } from '../../utils/coordinates'
 import MagnitudeBox from './MagnitudeBox'
 import DataLimitBox from './DataLimitBox'
 import RefreshButton from "./RefreshButton";
+import SelectBackendButton from "./SelectBackendButton"
 
 export default function LeftPanel(props) {
     const [ my_state , my_dispatch] = useGlobalReducer()
@@ -26,14 +28,18 @@ export default function LeftPanel(props) {
             <Card>
 
                 <Card.Body align={"left"}>
+
                     <table>
-                        <tr><td>Status: {my_state.status_ucac4}</td></tr>
-                    <tr><td>Number of stars: {my_state.number_of_stars}</td></tr>
-                    <tr><td>{renderRADec(my_state.aladin_ra, my_state.aladin_dec)}</td></tr>
-                    <tr>---------------------------------</tr>
-                    <tr><td>Magnitude Limit: <MagnitudeBox/></td></tr>
-                    <tr><td>Max Records    : <DataLimitBox/></td></tr>
-                    <RefreshButton />
+                        <Row><Col sm={5} md={5} lg={5}>Backend:</Col><Col sm={7} md={7} lg={7}> {my_state.ucac4_backend_url[0]}</Col></Row>
+                        <Row><Col sm={5} md={5} lg={5}>Status :</Col><Col sm={7} md={7} lg={7}>  {my_state.status_ucac4}</Col></Row>
+                        <Row><Col sm={5} md={5} lg={5}>Stars:</Col><Col sm={7} md={7} lg={7}>  {my_state.number_of_stars}</Col></Row>
+                        <Row></Row>
+                        <Row><Col>{renderRADec(my_state.aladin_ra, my_state.aladin_dec)}</Col></Row>
+                        <tr>---------------------------------</tr>
+                        <tr><td>Magnitude Limit: <MagnitudeBox/></td></tr>
+                        <tr><td>Max Records    : <DataLimitBox/></td></tr>
+                        <tr><td>Choose Backend:</td></tr>
+                        <SelectBackendButton />
                     </table>
                 </Card.Body>
             </Card>

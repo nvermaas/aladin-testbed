@@ -23,7 +23,7 @@ export default function SelectBackendButton() {
             <Dropdown.Item onClick={() => handleClick(['192.168.178.37:8011 (psycopg2)','http://192.168.178.37:8011'])}>192.168.178.37:8011 (psycopg2)</Dropdown.Item>
             <Dropdown.Item onClick={() => handleClick(['192.168.178.37:8012 (asyncpg)','http://192.168.178.37:8012'])}>192.168.178.37:8012 (asyncpg)</Dropdown.Item>
             <Dropdown.Item onClick={() => handleClick(['localhost:8000','http://localhost:8000'])}>localhost:8000</Dropdown.Item>
-            <Dropdown.Item onClick={() => handleClick(['SURF Research Cloud (psycopg2)','http://145.38.187.31/'])}>SURF Research Cloud (psycopg2)</Dropdown.Item>
+            <Dropdown.Item onClick={() => handleClick(['SURF Research Cloud (psycopg2)','http://145.38.187.31'])}>SURF Research Cloud (psycopg2)</Dropdown.Item>
         </Dropdown.Menu>
     </Dropdown>
 

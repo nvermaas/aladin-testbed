@@ -20,7 +20,7 @@ import FetchADEX from '../services/FetchADEX';
 
 export default function Main() {
 
-    FetchData()
+    //FetchData()
     FetchUCAC4()
     FetchADEX()
 
@@ -51,7 +51,7 @@ export default function Main() {
                 </Switch>
             </div>
             <footer>
-                <small> (C) 2021 - Nico Vermaas - version 1.0.0 - 5 sep 2022 - 154:00</small>
+                <small> (C) 2021 - Nico Vermaas - version 1.0.0 - 5 sep 2022 - 15:00</small>
             </footer>
         </Router>
 

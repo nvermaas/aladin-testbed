@@ -55,7 +55,7 @@ export const initialState = {
         status_adex       : "unfetched",
         fetched_adex      : undefined,
         number_of_dataproducts : 0,
-        adex_backend_url   : ['localhost:8000','http://localhost:8000'],
+        adex_backend_url   : ['sdc-dev.astron.nl','https://sdc-dev.astron.nl'],
         adex_ra: "64.0",
         adex_dec: "14.0",
         adex_fov: "5",

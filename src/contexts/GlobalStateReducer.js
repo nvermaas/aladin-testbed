@@ -16,6 +16,15 @@ export const SET_NUMBER_OF_STARS = 'SET_NUMBER_OF_STARS'
 export const SET_UCAC4_BACKEND_URL = 'SET_UCAC4_BACKEND_URL'
 export const RELOAD_UCAC4 = 'RELOAD_UCAC4'
 
+export const SET_STATUS_ADEX = 'SET_STATUS_ADEX'
+export const SET_FETCHED_ADEX = 'SET_FETCHED_ADEX'
+export const SET_NUMBER_OF_DATAPRODUCTS = 'SET_NUMBER_OF_DATAPRODUCTS'
+export const SET_ADEX_BACKEND_URL = 'SET_ADEX_BACKEND_URL'
+export const RELOAD_ADEX = 'RELOAD_ADEX'
+export const ADEX_RA = 'ADEX_RA'
+export const ADEX_DEC = 'ADEX_DEC'
+export const ADEX_FOV = 'ADEX_FOV'
+
 export const ALADIN_RA = 'ALADIN_RA'
 export const ALADIN_DEC = 'ALADIN_DEC'
 export const ALADIN_FOV = 'ALADIN_FOV'
@@ -41,11 +50,19 @@ export const initialState = {
         status_ucac4       : "unfetched",
         fetched_ucac4      : undefined,
         number_of_stars    : 0,
-        ucac4_backend_url  : ['uilennest psycopg2','https://uilennest.net/psycopg2'],
+        ucac4_backend_url  : ['uilennest (psycopg2)','https://uilennest.net/psycopg2'],
+
+        status_adex       : "unfetched",
+        fetched_adex      : undefined,
+        number_of_dataproducts : 0,
+        adex_backend_url   : ['localhost:8000','http://localhost:8000'],
+        adex_ra: "64.0",
+        adex_dec: "14.0",
+        adex_fov: "5",
 
         aladin_ra: "82.0",
         aladin_dec: "7.0",
-        aladin_fov: "2.5",
+        aladin_fov: "0.5",
 
         show_planetlist  : false,
 
@@ -126,6 +143,55 @@ export const reducer = (state, action) => {
             return {
                 ...state,
                 number_of_stars: action.number_of_stars
+            };
+
+        case SET_STATUS_ADEX:
+            return {
+                ...state,
+                status_adex: action.status_adex
+            };
+
+        case SET_FETCHED_ADEX:
+            return {
+                ...state,
+                fetched_adex: action.fetched_adex
+            };
+
+        case RELOAD_ADEX:
+            return {
+                ...state,
+                reload_adex: action.reload_adex
+            };
+
+        case SET_ADEX_BACKEND_URL:
+            return {
+                ...state,
+                adex_backend_url: action.adex_backend_url
+            };
+
+        case SET_NUMBER_OF_DATAPRODUCTS:
+            return {
+                ...state,
+                number_of_dataproducts: action.number_of_dataproducts
+            };
+
+        case ADEX_RA:
+
+            return {
+                ...state,
+                adex_ra: action.adex_ra
+            };
+
+        case ADEX_DEC:
+            return {
+                ...state,
+                adex_dec: action.adex_dec
+            };
+
+        case ADEX_FOV:
+            return {
+                ...state,
+                adex_fov: action.adex_fov
             };
 
         case ALADIN_RA:

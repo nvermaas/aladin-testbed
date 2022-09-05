@@ -13,12 +13,17 @@ import AsteroidsPage from '../pages/asteroids/AsteroidsPage';
 import ExoplanetsPage from '../pages/exoplanets/ExoplanetsPage';
 import HipsPage from '../pages/hips/HipsPage';
 import UCAC4Page from '../pages/ucac4/UCAC4Page';
+import ADEXPage from '../pages/adex/ADEXPage';
 import FetchData from '../services/FetchData';
 import FetchUCAC4 from '../services/FetchUCAC4';
+import FetchADEX from '../services/FetchADEX';
+
 export default function Main() {
 
     FetchData()
     FetchUCAC4()
+    FetchADEX()
+
     return (
         <Router basename="aladin-testbed">
             <div>
@@ -40,10 +45,13 @@ export default function Main() {
                     <Route exact path="/ucac4">
                         <UCAC4Page />
                     </Route>
+                    <Route exact path="/adex">
+                        <ADEXPage />
+                    </Route>
                 </Switch>
             </div>
             <footer>
-                <small> (C) 2021 - Nico Vermaas - version 1.0.0 - 3 sep 2022 - 16:00</small>
+                <small> (C) 2021 - Nico Vermaas - version 1.0.0 - 5 sep 2022 - 154:00</small>
             </footer>
         </Router>
 

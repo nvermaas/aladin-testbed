@@ -30,15 +30,15 @@ export default function LeftPanel(props) {
                 <Card.Body align={"left"}>
 
                     <table>
-                        <Row><Col sm={5} md={5} lg={5}>Backend:</Col><Col sm={7} md={7} lg={7}> {my_state.ucac4_backend_url[0]}</Col></Row>
-                        <Row><Col sm={5} md={5} lg={5}>Status :</Col><Col sm={7} md={7} lg={7}>  {my_state.status_ucac4}</Col></Row>
-                        <Row><Col sm={5} md={5} lg={5}>Stars:</Col><Col sm={7} md={7} lg={7}>  {my_state.number_of_stars}</Col></Row>
+                        <Row><Col sm={5} md={5} lg={5}>Backend:</Col><Col sm={7} md={7} lg={7}> {my_state.adex_backend_url[0]}</Col></Row>
+                        <Row><Col sm={5} md={5} lg={5}>Status :</Col><Col sm={7} md={7} lg={7}>  {my_state.status_adex}</Col></Row>
+                        <Row><Col sm={5} md={5} lg={5}>Dataproducts:</Col><Col sm={7} md={7} lg={7}>  {my_state.number_of_dataproducts}</Col></Row>
                         <Row></Row>
                         <Row><Col>{renderRADec(my_state.aladin_ra, my_state.aladin_dec)}</Col></Row>
                         <tr>---------------------------------</tr>
-                        <tr><td>Magnitude Limit: <MagnitudeBox/></td></tr>
-                        <tr><td>Max Records    : <DataLimitBox/></td></tr>
-                        <tr><td>Choose Backend:</td></tr>
+                        <tr><td>Calibration Level : <MagnitudeBox/></td></tr>
+                        <tr><td>Max Records       : <DataLimitBox/></td></tr>
+                        <tr><td>Choose Backend    :</td></tr>
                         <SelectBackendButton />
                         <RefreshButton />
                     </table>

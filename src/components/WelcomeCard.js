@@ -16,10 +16,11 @@ export default function WelcomeCard(props) {
                     </Table>
 
                     <Card.Text>
-                        <li><b>Asteroids</b>: Plotting 1000 points on Aladin, read from a REST API backend</li>
                         <li><b>Exoplanets</b>: Show event/control interaction between Aladin and React. Plotting 4400 points on Aladin</li>
                         <li><b>HiPS</b>: Select both local Catalogs and Surveys</li>
                         <li><b>UCAC4</b>: Show as many points as you want from a 114M star database</li>
+                        <li><b>ADEX</b>: Test ADEX fastapi backend</li>
+
                     </Card.Text>
                 </Card.Body>
             </Card>

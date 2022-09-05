@@ -13,10 +13,12 @@ export default function FetchData () {
     // use global state
     const [ my_state , my_dispatch] = useGlobalReducer()
 
+/*
     useEffect(() => {
             fetchAsteroids()
         }, []
     );
+*/
 
     useEffect(() => {
             fetchExoplanets()

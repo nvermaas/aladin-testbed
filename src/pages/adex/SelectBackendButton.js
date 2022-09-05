@@ -14,7 +14,7 @@ export default function SelectBackendButton() {
 
     return <Dropdown>
         <Dropdown.Toggle variant="outline-primary" id="dropdown-basic">
-            &nbsp;{my_state.adex_backend_url[0]}
+            Backend: &nbsp;{my_state.adex_backend_url[0]}
         </Dropdown.Toggle>
 
         <Dropdown.Menu>
@@ -22,7 +22,7 @@ export default function SelectBackendButton() {
             <Dropdown.Item onClick={() => handleClick(['localhost:8000','http://localhost:8000'])}>localhost:8000 (dev)</Dropdown.Item>
             <Dropdown.Item onClick={() => handleClick(['sdc-dev.astron.nl','https://sdc-dev.astron.nl'])}>sdc-dev (test)</Dropdown.Item>
             <Dropdown.Item onClick={() => handleClick(['sdc.astron.nl','https://sdc.astron.nl'])}>sdc (production)</Dropdown.Item>
-            <Dropdown.Item onClick={() => handleClick(['SURF Research Cloud (psycopg2)','http://145.38.187.31'])}>SURF Research Cloud (dev)</Dropdown.Item>
+            <Dropdown.Item onClick={() => handleClick(['SURF Research Cloud','http://145.38.187.31'])}>SURF Research Cloud (dev)</Dropdown.Item>
         </Dropdown.Menu>
     </Dropdown>
 

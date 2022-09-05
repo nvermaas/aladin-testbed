@@ -32,11 +32,10 @@ export default function LeftPanel(props) {
                     <table>
                         <Row><Col sm={5} md={5} lg={5}>Backend:</Col><Col sm={7} md={7} lg={7}> {my_state.adex_backend_url[0]}</Col></Row>
                         <Row><Col sm={5} md={5} lg={5}>Status :</Col><Col sm={7} md={7} lg={7}>  {my_state.status_adex}</Col></Row>
-                        <Row><Col sm={5} md={5} lg={5}>Dataproducts:</Col><Col sm={7} md={7} lg={7}>  {my_state.number_of_dataproducts}</Col></Row>
+                        <Row><Col sm={5} md={5} lg={5}>DPS:</Col><Col sm={7} md={7} lg={7}>  {my_state.number_of_dataproducts}</Col></Row>
                         <Row></Row>
                         <Row><Col>{renderRADec(my_state.aladin_ra, my_state.aladin_dec)}</Col></Row>
                         <tr>---------------------------------</tr>
-                        <tr><td>Calibration Level : <MagnitudeBox/></td></tr>
                         <tr><td>Max Records       : <DataLimitBox/></td></tr>
                         <tr><td>Choose Backend    :</td></tr>
                         <SelectBackendButton />

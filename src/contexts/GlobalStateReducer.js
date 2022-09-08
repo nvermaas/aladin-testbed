@@ -63,11 +63,11 @@ export const initialState = {
         adex_backend_url   : ['sdc-dev.astron.nl','https://sdc-dev.astron.nl'],
         adex_ra: "40.0",
         adex_dec: "40.0",
-        adex_fov: "10",
+        adex_fov: "30",
         level : "2",
         collection : "apertif-imaging",
         dataproduct_type: "image",
-        dataproduct_subtype: "all",
+        dataproduct_subtype: "continuumMF",
 
         aladin_ra: "82.0",
         aladin_dec: "7.0",

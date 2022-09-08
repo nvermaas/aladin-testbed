@@ -24,6 +24,10 @@ export const RELOAD_ADEX = 'RELOAD_ADEX'
 export const ADEX_RA = 'ADEX_RA'
 export const ADEX_DEC = 'ADEX_DEC'
 export const ADEX_FOV = 'ADEX_FOV'
+export const SET_LEVEL = 'SET_LEVEL'
+export const SET_COLLECTION = 'SET_COLLECTION'
+export const SET_DATAPRODUCT_TYPE = 'SET_DATAPRODUCT_TYPE'
+export const SET_DATAPRODUCT_SUBTYPE = 'SET_DATAPRODUCT_SUBTYPE'
 
 export const ALADIN_RA = 'ALADIN_RA'
 export const ALADIN_DEC = 'ALADIN_DEC'
@@ -52,13 +56,18 @@ export const initialState = {
         number_of_stars    : 0,
         ucac4_backend_url  : ['uilennest (psycopg2)','https://uilennest.net/psycopg2'],
 
+        // ADEX
         status_adex       : "unfetched",
         fetched_adex      : undefined,
         number_of_dataproducts : 0,
         adex_backend_url   : ['sdc-dev.astron.nl','https://sdc-dev.astron.nl'],
-        adex_ra: "64.0",
-        adex_dec: "14.0",
-        adex_fov: "5",
+        adex_ra: "45.0",
+        adex_dec: "30.0",
+        adex_fov: "10",
+        level : "2",
+        collection : "apertif-imaging",
+        dataproduct_type: "image",
+        dataproduct_subtype: "all",
 
         aladin_ra: "82.0",
         aladin_dec: "7.0",
@@ -192,6 +201,30 @@ export const reducer = (state, action) => {
             return {
                 ...state,
                 adex_fov: action.adex_fov
+            };
+
+        case SET_LEVEL:
+            return {
+                ...state,
+                level: action.level
+            };
+
+        case SET_COLLECTION:
+            return {
+                ...state,
+                collection: action.collection
+            };
+
+        case SET_DATAPRODUCT_TYPE:
+            return {
+                ...state,
+                dataproduct_type: action.dataproduct_type
+            };
+
+        case SET_DATAPRODUCT_SUBTYPE:
+            return {
+                ...state,
+                dataproduct_subtype: action.dataproduct_subtype
             };
 
         case ALADIN_RA:

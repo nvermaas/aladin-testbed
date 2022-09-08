@@ -136,8 +136,9 @@ const Aladin = (props) => {
             object.ra,
             object.dec,
             {
-                title: object.title,
+                name: object.name,
                 observation : object.observation,
+                beam : object.beam,
                 dataproduct_type : object.dataproduct_type,
                 dataproduct_subtype : object.dataproduct_subtype,
             },

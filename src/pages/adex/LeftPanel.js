@@ -7,6 +7,9 @@ import MagnitudeBox from './MagnitudeBox'
 import DataLimitBox from './DataLimitBox'
 import RefreshButton from "./RefreshButton";
 import SelectBackendButton from "./SelectBackendButton"
+import LevelBox from "./LevelBox"
+import SelectCollectionButton from "./SelectCollectionButton";
+import SelectDataProductTypeButton from "./SelectDataProductTypeButton";
 
 export default function LeftPanel(props) {
     const [ my_state , my_dispatch] = useGlobalReducer()
@@ -39,7 +42,12 @@ export default function LeftPanel(props) {
                         <tr><td>Max Records       : <DataLimitBox/></td></tr>
                         <tr><td>Choose Backend    :</td></tr>
                         <SelectBackendButton />
+                        <tr><td>Collection:</td></tr>
+                        <tr><SelectCollectionButton /></tr>
+                        <tr><td>DataProduct Type:</td></tr>
+                        <tr><SelectDataProductTypeButton /></tr>
                         <RefreshButton />
+
                     </table>
                 </Card.Body>
             </Card>

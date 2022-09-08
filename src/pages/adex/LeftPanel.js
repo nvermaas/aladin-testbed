@@ -10,6 +10,7 @@ import SelectBackendButton from "./SelectBackendButton"
 import LevelBox from "./LevelBox"
 import SelectCollectionButton from "./SelectCollectionButton";
 import SelectDataProductTypeButton from "./SelectDataProductTypeButton";
+import SelectDataProductSubTypeButton from "./SelectDataProductSubTypeButton";
 
 export default function LeftPanel(props) {
     const [ my_state , my_dispatch] = useGlobalReducer()
@@ -46,6 +47,7 @@ export default function LeftPanel(props) {
                         <tr><SelectCollectionButton /></tr>
                         <tr><td>DataProduct Type:</td></tr>
                         <tr><SelectDataProductTypeButton /></tr>
+                        <tr><SelectDataProductSubTypeButton /></tr>
                         <RefreshButton />
 
                     </table>

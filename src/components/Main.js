@@ -51,7 +51,7 @@ export default function Main() {
                 </Switch>
             </div>
             <footer>
-                <small> (C) 2021 - Nico Vermaas - version 1.0.0 - 8 sep 2022 - 16:30</small>
+                <small> (C) 2021 - Nico Vermaas - version 1.0.0 - 9 sep 2022 - 10:00</small>
             </footer>
         </Router>
 

@@ -20,7 +20,7 @@ export default function SelectCollectionButton() {
         <Dropdown.Menu>
 
             <Dropdown.Item onClick={() => handleClick('apertif-imaging')}>apertif-imaging</Dropdown.Item>
-            <Dropdown.Item onClick={() => handleClick('apertif-timedomain')}>apertif-timedomain</Dropdown.Item>
+            <Dropdown.Item onClick={() => handleClick('apertif-timeseries')}>apertif-timedomain</Dropdown.Item>
 
         </Dropdown.Menu>
     </Dropdown>

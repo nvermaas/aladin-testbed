@@ -32,12 +32,14 @@ export const SET_DATAPRODUCT_SUBTYPE = 'SET_DATAPRODUCT_SUBTYPE'
 export const ALADIN_RA = 'ALADIN_RA'
 export const ALADIN_DEC = 'ALADIN_DEC'
 export const ALADIN_FOV = 'ALADIN_FOV'
+export const ALADIN_SET_MOUSE = 'ALADIN_SET_MOUSE'
 export const ALADIN_RELOAD = 'ALADIN_RELOAD'
 
 export const SHOW_PLANETLIST = 'SHOW_PLANETLIST'
 
 // HIPS page
 export const SET_SELECTED_SURVEY = 'SET_SELECTED_SURVEY'
+export const SET_SELECTED_OBJECT = 'SET_SELECTED_OBJECT'
 export const SET_SELECTED_CATALOG = 'SET_SELECTED_CATALOG'
 export const SET_MAGNITUDE_LIMIT = 'SET_MAGNITUDE_LIMIT'
 export const SET_DATA_LIMIT = 'SET_DATA_LIMIT'
@@ -72,6 +74,7 @@ export const initialState = {
         aladin_ra: "82.0",
         aladin_dec: "7.0",
         aladin_fov: "0.5",
+        aladin_mouse: "idle",
 
         show_planetlist  : false,
 
@@ -83,6 +86,7 @@ export const initialState = {
 }
 
 export const reducer = (state, action) => {
+    console.log('action: '+action.type)
     switch (action.type) {
 
         case SET_STATUS_ASTEROIDS:
@@ -246,6 +250,13 @@ export const reducer = (state, action) => {
                 aladin_fov: action.aladin_fov
             };
 
+        case ALADIN_SET_MOUSE:
+            console.log(action.aladin_mouse)
+            return {
+                ...state,
+                aladin_mouse: action.aladin_mouse
+            };
+
         case ALADIN_RELOAD:
 
             return {
@@ -270,6 +281,12 @@ export const reducer = (state, action) => {
             return {
                 ...state,
                 selected_catalog: action.selected_catalog
+            };
+
+        case SET_SELECTED_OBJECT:
+            return {
+                ...state,
+                selected_object: action.selected_object
             };
 
         case SET_MAGNITUDE_LIMIT:

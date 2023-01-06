@@ -18,7 +18,6 @@ export default function WelcomeCard(props) {
                     <Card.Text>
                         <li><b>HiPS</b>: Select both local Catalogs and Surveys</li>
                         <li><b>UCAC4</b>: Show as many points as you want from a 114M star database</li>
-                        <li><b>ADEX</b>: Test ADEX fastapi backend</li>
 
                     </Card.Text>
                 </Card.Body>

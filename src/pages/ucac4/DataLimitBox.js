@@ -9,11 +9,11 @@ export default function DataLimitBox(props) {
     const [ my_state , my_dispatch] = useGlobalReducer()
 
     // use if you want the search to start while you hit enter
-        const handleKeyPress = (event) => {
+    const handleKeyDown = (event) => {
 
-        let data_limit = event.target.value.toUpperCase()
-
-        if (event.charCode === 13) {
+        if (event.keyCode === 13) {
+            alert(event.target.value)
+            let data_limit = event.target.value.toUpperCase()
             my_dispatch({type: RELOAD_UCAC4, reload_ucac4: !my_state.reload_ucac4})
             my_dispatch({type: SET_DATA_LIMIT, data_limit: data_limit})
 
@@ -29,10 +29,9 @@ export default function DataLimitBox(props) {
                 type="text"
                 placeholder= {my_state.data_limit}
                 className="mr-sm-1"
-                onKeyPress={handleKeyPress}>
+                onKeyDown={handleKeyDown}>
             </FormControl>
         </div>
-        </Form>
-
+    </Form>
 
 }

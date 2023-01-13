@@ -6,7 +6,7 @@ import { useGlobalReducer } from '../../contexts/GlobalContext';
 import LeftPanel from './LeftPanel'
 import AladinPanel from "./AladinPanel";
 
-export default function UCAC4Page(props) {
+export default function StarChartPage(props) {
 
     const [ my_state, my_dispatch] = useGlobalReducer()
 

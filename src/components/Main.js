@@ -15,7 +15,7 @@ import HipsPage from '../pages/hips/HipsPage';
 import UCAC4Page from '../pages/ucac4/UCAC4Page';
 import FetchData from '../services/FetchData';
 import FetchUCAC4 from '../services/FetchUCAC4';
-
+import StarChartPage from "../pages/starchart/StarChartPage";
 
 export default function Main() {
 
@@ -44,11 +44,13 @@ export default function Main() {
                     <Route exact path="/ucac4">
                         <UCAC4Page />
                     </Route>
-
+                    <Route exact path="/starchart">
+                        <StarChartPage />
+                    </Route>
                 </Switch>
             </div>
             <footer>
-                <small> (C) 2023 - Nico Vermaas - version 1.0.0 - 6 jan 2023 - 08:00</small>
+                <small> (C) 2023 - Nico Vermaas - version 1.0.0 - 13 jan 2023 - 16:00</small>
             </footer>
         </Router>
 

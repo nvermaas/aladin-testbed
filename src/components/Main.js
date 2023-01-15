@@ -50,7 +50,7 @@ export default function Main() {
                 </Switch>
             </div>
             <footer>
-                <small> (C) 2023 - Nico Vermaas - version 1.0.0 - 13 jan 2023 - 16:00</small>
+                <small> (C) 2023 - Nico Vermaas - version 1.0.0 - 15 jan 2023 - 12:00</small>
             </footer>
         </Router>
 

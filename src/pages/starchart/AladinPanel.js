@@ -127,6 +127,16 @@ const AladinPanel = (props) => {
 
 
     const addCircleToOverlay = (my_overlay, object, size, color) => {
+        // create n circles on equal distance to simulate filling
+        let n = 10
+        let d = size/n
+        let s = size
+        for (let i = 0; i < n; i++) {
+
+            my_overlay.add(window.A.circle(object.ra, object.dec,s, {color: color, lineWidth: 2}));
+            s = s - d
+            //alert(s)
+        }
         my_overlay.add(window.A.circle(object.ra, object.dec,size, {color: color, lineWidth: 2}));
         my_overlay.add(window.A.circle(object.ra, object.dec,size/2, {color: color, lineWidth: 2}));
         my_overlay.add(window.A.circle(object.ra, object.dec,size/3, {color: color, lineWidth: 2}));
@@ -162,11 +172,12 @@ const AladinPanel = (props) => {
         if (data) {
             data.forEach(function (object) {
                 // draw a clickable icon for each observation
-                addToCatalog(my_catalog, object)
+                //addToCatalog(my_catalog, object)
 
                 // calculate a reasonable size based on magnitude
                 let m = object.j_mag
-                let s = (20000 - m) / 5000000
+                let base = Math.pow(((15000 - m) / 1000),2)
+                let s = base / 20000
 
                 addCircleToOverlay(overlay_stars, object,s, 'white')
                 //addBoxesToOverlay(overlay_boxes, object, 0.01 "white")
